@@ -1,0 +1,38 @@
+---
+interface Props {
+	title: string;
+};
+
+const { title } = Astro.props;
+---
+<li class="list-item">
+  <a class="header-menu-link">
+    <span>{title}</span>
+  </a>
+</li>
+<style>
+li {
+  list-style-type: none;
+  display: list-item;
+}
+.header-menu-link {
+  cursor: pointer;
+  color: black;
+  display: block;
+  padding: 2.16667rem 0.66667rem;
+  font-size: 22px;
+  font-weight: 700;
+}
+.header-menu-link:hover{
+  color: #367d91;
+  text-decoration: underline;
+}
+.header-menu-link:active{
+  color: #2f8375;
+}
+.nav-item {
+  padding: 12px;
+  cursor: pointer;
+  text-align: center;
+}
+</style>

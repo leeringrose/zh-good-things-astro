@@ -1,0 +1,63 @@
+---
+interface Props {
+	title: string;
+	excerpt: string;
+  // backgroundPath: string;
+};
+const {
+  title = "Bolck title here",
+  excerpt = "Block excerpt here",
+  // backgroundPath = "/assets/good-things-foundation-logo.png"
+  class: className,
+  ...attribute
+} = Astro.props;
+import BlockButton from './core/BlockButton.astro';
+---
+<section
+  class:list={["promotional-block", className]}
+  {...attribute}
+>
+  <div class="container">
+    <h1 class:list={["large", "promotional-block-title"]}>
+      {title}
+    </h1>
+    <p class:list={["standard", "promotional-block-excerpt"]}>
+      {excerpt}
+    </p>
+    <BlockButton title="Read the blog now" />
+  </div>
+</section>
+<style>
+.promotional-block {
+  background-position: 50%;
+  background-size: cover;
+  position: relative;
+  width: 100%;
+}
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 120rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 7.59375rem;
+  padding-right: 7.59375rem;
+  padding-top: 5.0625rem;
+  padding-bottom: 5.0625rem;
+}
+.promotional-block-title {
+  width: fit-content;
+  color: white;
+  background-color: #367d91;
+  padding: 1.5rem 2.5rem;
+  display: inline-block;
+}
+.promotional-block-excerpt {
+  margin-top: 1.5em;
+  background-color: white;
+  color: #2f8375;
+  padding: 1.5rem;
+  max-width: 40rem;
+}
+</style>

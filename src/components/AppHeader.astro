@@ -1,0 +1,48 @@
+---
+import NavItem from "./core/NavItem.astro";
+import { navTitles } from "../service.ts";
+
+const { class: className, ...attribute } = Astro.props;
+---
+<header class:list={["section", "header-container", className]}>
+  <a
+    href="https://www.goodthingsfoundation.org"
+    class="standard-header-logo"
+  >
+    <img
+      src="/assets/good-things-foundation-logo.png"
+      alt="Company Logo"
+      height="100%"
+      width="auto"
+    />
+  </a>
+  <nav>
+    <ul class="hadear-nav-container">
+      {navTitles.map(navTitle => <NavItem title={navTitle} />)}
+    </ul>
+  </nav>
+</header>
+<style>
+img {
+  border: none;
+  display: block;
+  height: 100%;
+}
+.standard-header-logo {
+  height: 70%;
+  width: auto;
+  margin-right: 1rem;
+}
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 108px;
+  padding: 0 10%;
+}
+.hadear-nav-container {
+  display: flex;
+  height: 100%;
+  align-items: center;
+}
+</style>

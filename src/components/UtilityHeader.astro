@@ -1,0 +1,38 @@
+---
+import UtilityHeaderMenuItem from './core/UtilityHeaderMenuItem.astro';
+---
+<header class='utility-header navigation'>
+  <div class='header-container'>
+    <ul class='list'>
+      <UtilityHeaderMenuItem
+        searchIcon
+        style="margin-right: auto;"
+        title="Search"
+      />
+      <UtilityHeaderMenuItem
+        title="Learn"
+        style="border-bottom: 3px solid #2f8375;"
+      />
+      <UtilityHeaderMenuItem
+        title="Donate"
+        style="background-color: #cf1b46; color: #fff"
+      />
+    </ul>
+  </div>
+</header>
+<style>
+.utility-header {
+  padding: 0 5%;
+}
+.header-container {
+  display: flex;
+  background: #fff;
+}
+.list {
+  display: flex;
+  justify-content: space-between;
+  list-style-type: none;
+  width: 100%;
+  border: 1px dashed #f39695;
+}
+</style>

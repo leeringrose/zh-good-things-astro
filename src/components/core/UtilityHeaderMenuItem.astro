@@ -1,0 +1,35 @@
+---
+interface Props {
+	searchIcon?: boolean;
+  title?: string;
+};
+
+const { searchIcon = false, title = 'button', class: className, ...attribute } = Astro.props;
+---
+<li
+  class:list={["list-item", className]}
+  {...attribute}
+>
+  <a class="container" href="#">
+    {searchIcon && <img src="/assets/icon/search.png" alt="Search icon" width="20px" height="20px" />}
+    <span>{ title }</span>
+  </a>
+</li>
+<style>
+.list-item {
+  height: 100%;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+img {
+  margin-right: 0.6667em;
+}
+.container {
+  display: flex;
+  padding: 0.6667em 1.5em;
+}
+.list-item:hover {
+  background: #ececec;
+}
+
+</style>

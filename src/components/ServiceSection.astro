@@ -1,0 +1,72 @@
+---
+interface Props {
+	title?: string;
+	excerpt?: string;
+};
+import ServiceCard from './ServiceCard';
+import BlockButton from './core/BlockButton';
+const { title = 'Block title here', excerpt = 'Block excerpt here' } = Astro.props;
+const { services } from '../service.ts';
+
+const serviceCards = services.map((service, index) => <ServiceCard 
+  key={index}
+  cardTitle={service}
+  cardBody={`Lorem ipsum dolor sit amet`});
+
+---
+
+<section class='container'>
+  <h2 class='promotional-block-title'>
+    { title }
+  </h2>
+  <p class='standard promotional-block-excerpt'>
+    { excerpt }
+  </p>
+  <div class='card-container'>
+    { serviceCards }
+  </div>
+  <div class='button-container'>
+    <BlockButton
+      title='More about what we do'
+    />
+  </div>
+  <section />
+</section>
+<style>
+  .container {
+  background-color: #497c8f;
+  height: fit-content;
+  padding: 3.375rem 7.59375rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+  color: white;
+}
+.promotional-block-title {
+  width: fit-content;
+  font-size: 3.25em;
+  line-height: 1.2;
+  display: inline-block;
+}
+.promotional-block-excerpt {
+  font-size: 1.25em;
+  font-weight: 500;
+}
+p {
+  margin: 2.25rem 0;
+  font-size: 3.25em;
+}
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 2rem 0;
+}
+.card-container {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+</style>
